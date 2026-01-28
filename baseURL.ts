@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://sayedsabbir6000.sobhoy.com/api/v1/'

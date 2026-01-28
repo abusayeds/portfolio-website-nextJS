@@ -1,8 +1,7 @@
 'use client';
-import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
-export default function ContactSection({ darkMode }) {
+export default function ContactSection({ darkMode }: any) {
     return (
         <section id="contact" className={`py-24 transition-colors duration-300 ${darkMode ? 'bg-[#0a0a1a]' : 'bg-gray-50'}`}>
             <div className="max-w-7xl mx-auto px-6">
@@ -54,8 +53,8 @@ export default function ContactSection({ darkMode }) {
                                 type="text"
                                 placeholder="Your Name"
                                 className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${darkMode
-                                        ? 'bg-[#12121f] border-gray-800 text-white'
-                                        : 'bg-white border-gray-300 text-gray-900'
+                                    ? 'bg-[#12121f] border-gray-800 text-white'
+                                    : 'bg-white border-gray-300 text-gray-900'
                                     }`}
                             />
                         </div>
@@ -64,8 +63,8 @@ export default function ContactSection({ darkMode }) {
                                 type="email"
                                 placeholder="Your Email"
                                 className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${darkMode
-                                        ? 'bg-[#12121f] border-gray-800 text-white'
-                                        : 'bg-white border-gray-300 text-gray-900'
+                                    ? 'bg-[#12121f] border-gray-800 text-white'
+                                    : 'bg-white border-gray-300 text-gray-900'
                                     }`}
                             />
                         </div>
@@ -74,8 +73,8 @@ export default function ContactSection({ darkMode }) {
                                 rows="5"
                                 placeholder="Your Message"
                                 className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${darkMode
-                                        ? 'bg-[#12121f] border-gray-800 text-white'
-                                        : 'bg-white border-gray-300 text-gray-900'
+                                    ? 'bg-[#12121f] border-gray-800 text-white'
+                                    : 'bg-white border-gray-300 text-gray-900'
                                     }`}
                             ></textarea>
                         </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function MyQuality({ darkMode }) {
+export default function MyQuality({ darkMode }: any) {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
@@ -27,7 +27,7 @@ export default function MyQuality({ darkMode }) {
         };
     }, []);
 
-    const getAnimationClass = (index) => {
+    const getAnimationClass = (index: any) => {
         const pattern = index % 4;
         const baseClasses = 'transition-all duration-1000 ease-out';
 

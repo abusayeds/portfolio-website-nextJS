@@ -1,15 +1,16 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
 import CompaniesMarquee from '@/components/CompaniesMarquee';
-import StatsSection from '@/components/StatsSection';
-import ServicesSection from '@/components/ServicesSection';
-import WorksSection from '@/components/WorksSection';
-import MyQuality from '@/components/MyQuality';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import HeroSection from '@/components/HeroSection';
+import MyQuality from '@/components/MyQuality';
+import Navbar from '@/components/Navbar';
+import ServicesSection from '@/components/ServicesSection';
+import StatsSection from '@/components/StatsSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import WorksSection from '@/components/WorksSection';
+import { useEffect, useRef, useState } from 'react';
+import { fetchData } from '../api/api';
 
 function useScrollAnimation(defaultDirection = 'left') {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,14 +72,27 @@ function AnimatedSection({ children, defaultDirection = 'left' }: any) {
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
-
+  const [profileData, setProfileData] = useState<any>(null);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const res = await fetchData('my-profile');
+        if (res?.success && res?.data) {
+          setProfileData(res.data);
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+      }
+    };
+    loadData();
+  }, []);
   return (
     <div className={`min-h-screen w-full font-sans transition-colors duration-300 ${darkMode ? 'bg-[#0a0a1a] text-white' : 'bg-white text-gray-900'}`}>
       <div className="w-full overflow-x-hidden">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <HeroSection darkMode={darkMode} />
+        <HeroSection profileData={profileData} darkMode={darkMode} />
         <AnimatedSection defaultDirection="left">
-          <CompaniesMarquee darkMode={darkMode} />
+          <CompaniesMarquee profileData={profileData} darkMode={darkMode} />
         </AnimatedSection>
 
         <AnimatedSection defaultDirection="right">

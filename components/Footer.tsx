@@ -2,12 +2,12 @@
 import React from 'react';
 import { Facebook, Linkedin, Github, Dribbble, Heart, ArrowUp } from 'lucide-react';
 
-export default function Footer({ darkMode }) {
+export default function Footer({ darkMode }: any) {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const scrollToSection = (id) => {
+    const scrollToSection = (id: any) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });

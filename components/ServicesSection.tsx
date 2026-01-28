@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Code, Palette, Smartphone, Zap, Server, Database, Globe, Cpu, ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function ServicesSection({ darkMode }) {
+export default function ServicesSection({ darkMode }: any) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('next');
     const [isPaused, setIsPaused] = useState(false);

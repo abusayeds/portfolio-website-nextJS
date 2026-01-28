@@ -2,7 +2,7 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
 
-export default function TestimonialsSection({ darkMode }) {
+export default function TestimonialsSection({ darkMode }: any) {
     const testimonials = [
         {
             name: 'Sarah Johnson',
@@ -41,8 +41,8 @@ export default function TestimonialsSection({ darkMode }) {
                         <div
                             key={i}
                             className={`p-8 rounded-2xl transition-all duration-300 hover:scale-105 animate-slide-up ${darkMode
-                                    ? 'bg-[#0a0a1a] border border-gray-800'
-                                    : 'bg-gray-50 border border-gray-200 hover:shadow-xl'
+                                ? 'bg-[#0a0a1a] border border-gray-800'
+                                : 'bg-gray-50 border border-gray-200 hover:shadow-xl'
                                 }`}
                             style={{ animationDelay: `${i * 0.1}s` }}
                         >

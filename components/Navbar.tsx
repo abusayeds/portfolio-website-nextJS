@@ -1,12 +1,13 @@
 "use client"
 
-import { ArrowRight, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, Moon, Sun, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function Navbar({ darkMode, setDarkMode }: any) {
+export default function Navbar({ darkMode, setDarkMode, extraNavberColor }: any) {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-
+    const router = useRouter()
     useEffect(() => {
         const handleScroll = () => {
             const shouldBeScrolled = window.scrollY > 50;
@@ -44,15 +45,15 @@ export default function Navbar({ darkMode, setDarkMode }: any) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         setMenuOpen(false);
+        router.push('/')
     };
 
     const menuItems = ['services', 'works', 'skills', 'testimonials', 'contact'];
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
-            ? darkMode
-                ? 'bg-[#0a0a1a]/95 backdrop-blur-md shadow-lg shadow-purple-500/10'
-                : 'bg-white/95 backdrop-blur-md shadow-lg shadow-purple-200/50'
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? darkMode
+            ? 'bg-[#0a0a1a]/95 backdrop-blur-md shadow-lg shadow-purple-500/10'
+            : 'bg-white/95 text-purple-600 backdrop-blur-md shadow-lg shadow-purple-200/50'
             : 'bg-transparent'
             }`}
             style={{
@@ -72,7 +73,13 @@ export default function Navbar({ darkMode, setDarkMode }: any) {
                             <button
                                 key={item}
                                 onClick={() => scrollToSection(item)}
-                                className={`transition-colors capitalize ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-purple-600'}`}
+                                className={
+                                    `transition-colors capitalize ${darkMode ? 'text-white duration-500 hover:text-gray-400'
+                                        : scrolled
+                                            ? "text-purple-600"
+                                            : !scrolled && !extraNavberColor
+                                                ? "text-purple-600" :
+                                                'text-white'}`}
                             >
                                 {item}
                             </button>
