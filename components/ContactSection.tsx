@@ -70,7 +70,6 @@ export default function ContactSection({ darkMode }: any) {
                         </div>
                         <div>
                             <textarea
-                                rows="5"
                                 placeholder="Your Message"
                                 className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${darkMode
                                     ? 'bg-[#12121f] border-gray-800 text-white'

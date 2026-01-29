@@ -89,7 +89,7 @@ export default function MyQuality({ darkMode }: any) {
                 </p>
 
                 <div className="max-w-5xl mx-auto space-y-1">
-                    {services.map((service, i) => (
+                    {services.map((service: any, i: any) => (
                         <div
                             key={i}
                             style={{ transitionDelay: `${i * 150}ms` }}
